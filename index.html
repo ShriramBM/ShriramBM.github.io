@@ -4,820 +4,1110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shriram BM | Assistant Professor</title>
   <meta name="description"
-    content="Academic portfolio of Shriram BM, Assistant Professor at CMR Institute of Technology, Bengaluru.">
+    content="Shriram BM — Assistant Professor, Information Science & Engineering, CMR Institute of Technology, Bengaluru.">
+  <title>Shriram BM | Assistant Professor | CMRIT</title>
+
   <style>
     :root {
-      --bg: #080b12;
-      --panel: #0d121c;
-      --panel2: #111827;
-      --text: #e8edf7;
-      --muted: #8994a8;
-      --line: #202a3a;
-      --accent: #63e6be;
-      --accent2: #7aa2f7;
-      --danger: #ff6b8a;
-      --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --cmrit-blue: #123b73;
+      --cmrit-blue-dark: #08264d;
+      --cmrit-blue-light: #eaf2fb;
+      --cmrit-gold: #d7a52a;
+      --ink: #172235;
+      --muted: #65738a;
+      --line: #dfe6ef;
+      --paper: #ffffff;
+      --soft: #f5f8fc;
+      --shadow: 0 18px 50px rgba(12, 39, 75, .10);
+      --radius: 18px;
+      --max: 1180px;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    html {
-      scroll-behavior: smooth
+      scroll-behavior: smooth;
     }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
       line-height: 1.65;
-      overflow-x: hidden;
-    }
-
-    body:before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .35;
-      background-image: linear-gradient(var(--line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--line) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 75%);
     }
 
     a {
       color: inherit;
-      text-decoration: none
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .topline {
+      height: 5px;
+      background: linear-gradient(90deg, var(--cmrit-blue-dark), var(--cmrit-blue), var(--cmrit-gold));
     }
 
     .container {
-      width: min(1120px, 92%);
-      margin: auto
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
     }
 
-    .mono {
-      font-family: var(--mono)
-    }
-
+    /* HEADER */
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 20;
+      z-index: 50;
+      background: rgba(255, 255, 255, .94);
       backdrop-filter: blur(16px);
-      background: rgba(8, 11, 18, .82);
-      border-bottom: 1px solid rgba(99, 230, 190, .08);
+      border-bottom: 1px solid rgba(223, 230, 239, .9);
     }
 
     .nav {
-      height: 72px;
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px
+      gap: 25px;
     }
 
-    .logo {
-      font-family: var(--mono);
-      font-weight: 800;
-      letter-spacing: -.04em;
-      font-size: 19px
-    }
-
-    .logo span {
-      color: var(--accent)
-    }
-
-    .nav-links {
+    .brand {
       display: flex;
-      gap: 8px;
       align-items: center;
-      flex-wrap: wrap
+      gap: 13px;
+      min-width: 0;
     }
 
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 12px;
+    .brand-mark {
+      width: 45px;
+      height: 45px;
+      border: 2px solid var(--cmrit-blue);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--cmrit-blue);
+      font-weight: 900;
+      letter-spacing: -1px;
+      background: white;
+    }
+
+    .brand-title {
+      font-weight: 850;
+      color: var(--cmrit-blue-dark);
+      line-height: 1.05;
+      letter-spacing: -.3px;
+    }
+
+    .brand-subtitle {
+      font-size: .68rem;
       color: var(--muted);
-      border: 1px solid transparent;
-      padding: 8px 11px;
-      border-radius: 8px;
-      transition: .2s;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-top: 4px;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text);
-      border-color: var(--line);
-      background: var(--panel)
-    }
-
-    .menu {
-      display: none;
-      background: none;
-      border: 1px solid var(--line);
-      color: var(--text);
-      padding: 8px 10px;
-      border-radius: 8px
-    }
-
-    .hero {
-      min-height: 100vh;
+    nav {
       display: flex;
       align-items: center;
-      padding: 120px 0 80px;
-      position: relative
+      gap: 25px;
+      font-size: .86rem;
+      font-weight: 700;
+      color: #45546b;
+    }
+
+    nav a {
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: var(--cmrit-blue);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 1.6rem;
+      color: var(--cmrit-blue);
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(215, 165, 42, .17), transparent 24%),
+        radial-gradient(circle at 8% 80%, rgba(18, 59, 115, .10), transparent 27%),
+        linear-gradient(135deg, #fff 0%, #f5f8fc 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -140px;
+      top: -170px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(18, 59, 115, .12);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -50px;
+      top: -80px;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgba(215, 165, 42, .25);
+      border-radius: 50%;
     }
 
     .hero-grid {
+      min-height: 650px;
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
       gap: 70px;
-      align-items: center
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--accent);
-      margin-bottom: 18px
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cmrit-blue);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
     }
 
-    .eyebrow:before {
-      content: "$ ";
-      color: var(--muted)
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 3px;
+      background: var(--cmrit-gold);
     }
 
     h1 {
-      font-size: clamp(52px, 8vw, 92px);
-      line-height: .95;
-      letter-spacing: -.065em;
-      margin-bottom: 24px
+      font-size: clamp(3.5rem, 7vw, 6.7rem);
+      line-height: .88;
+      letter-spacing: -.075em;
+      margin: 0 0 28px;
+      color: var(--cmrit-blue-dark);
     }
 
-    h1 .outline {
-      color: transparent;
-      -webkit-text-stroke: 1px #536074
+    h1 span {
+      color: var(--cmrit-blue);
     }
 
-    .hero h2 {
-      font-size: clamp(22px, 3vw, 32px);
-      font-weight: 500;
-      color: #c9d1df;
-      margin-bottom: 18px
+    .hero-role {
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      font-weight: 750;
+      color: #2e4059;
+      margin-bottom: 15px;
     }
 
-    .hero p {
+    .hero-text {
       max-width: 680px;
       color: var(--muted);
-      font-size: 17px
+      font-size: 1.03rem;
+      margin-bottom: 30px;
     }
 
-    .cta {
+    .buttons {
       display: flex;
+      flex-wrap: wrap;
       gap: 12px;
-      margin-top: 30px;
-      flex-wrap: wrap
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 11px 16px;
+      justify-content: center;
+      min-height: 47px;
+      padding: 0 20px;
       border-radius: 9px;
-      border: 1px solid var(--line);
-      background: var(--panel);
-      font-family: var(--mono);
-      font-size: 12px;
-      transition: .2s;
-    }
-
-    .btn.primary {
-      background: var(--accent);
-      color: #07100d;
-      border-color: var(--accent);
-      font-weight: 800
+      font-weight: 800;
+      font-size: .88rem;
+      transition: transform .2s, box-shadow .2s, background .2s;
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      border-color: #43516a
+      box-shadow: 0 10px 25px rgba(12, 39, 75, .14);
     }
 
-    .terminal {
+    .btn-primary {
+      color: white;
+      background: var(--cmrit-blue);
+    }
+
+    .btn-secondary {
+      color: var(--cmrit-blue);
+      border: 1px solid #bfd0e4;
+      background: white;
+    }
+
+    .hero-card {
+      background: white;
       border: 1px solid var(--line);
-      background: rgba(13, 18, 28, .9);
-      border-radius: 14px;
-      box-shadow: 0 25px 70px rgba(0, 0, 0, .35);
-      overflow: hidden;
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: var(--shadow);
     }
 
-    .term-top {
-      height: 38px;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 0 13px
+    .institution {
+      font-size: .75rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cmrit-blue);
+      margin-bottom: 16px;
     }
 
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #30394a
+    .institution-name {
+      font-size: 1.55rem;
+      line-height: 1.15;
+      font-weight: 850;
+      color: var(--cmrit-blue-dark);
+      margin-bottom: 22px;
     }
 
-    .term-title {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--muted);
-      margin-left: auto
-    }
-
-    .term-body {
-      padding: 22px;
-      font: 12px/1.9 var(--mono);
-      color: #b6c1d4
-    }
-
-    .term-body .g {
-      color: var(--accent)
-    }
-
-    .term-body .b {
-      color: var(--accent2)
-    }
-
-    .term-body .r {
-      color: var(--danger)
-    }
-
-    section {
-      padding: 105px 0;
+    .hero-meta {
       border-top: 1px solid var(--line);
-      position: relative
+      padding-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: .87rem;
+    }
+
+    .meta-row strong {
+      color: var(--ink);
+    }
+
+    .meta-row span {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 0;
+    }
+
+    section.alt {
+      background: var(--soft);
     }
 
     .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 42px
-    }
-
-    .kicker {
-      font: 12px var(--mono);
-      color: var(--accent);
-      margin-bottom: 8px
-    }
-
-    .section-head h2 {
-      font-size: clamp(32px, 5vw, 52px);
-      letter-spacing: -.05em
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 45px;
+      margin-bottom: 48px;
     }
 
     .section-number {
-      font: 12px var(--mono);
-      color: #4f5b70
+      color: var(--cmrit-blue);
+      font-weight: 900;
+      letter-spacing: .15em;
+      font-size: .78rem;
+      text-transform: uppercase;
     }
 
+    .section-number::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 3px;
+      background: var(--cmrit-gold);
+      margin-top: 13px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+      color: var(--cmrit-blue-dark);
+      margin: 0 0 17px;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    /* ABOUT */
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px
+      grid-template-columns: 1.35fr .65fr;
+      gap: 25px;
+    }
+
+    .panel {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .panel h3 {
+      margin: 0 0 12px;
+      color: var(--cmrit-blue-dark);
+      font-size: 1.1rem;
+    }
+
+    .panel p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .profile-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 13px;
+    }
+
+    .profile-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: #536278;
+      font-size: .92rem;
+    }
+
+    .profile-list b {
+      color: var(--cmrit-blue);
+      min-width: 85px;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
     .card {
-      background: linear-gradient(145deg, rgba(17, 24, 39, .92), rgba(13, 18, 28, .85));
+      background: white;
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 26px;
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: #bfd0e4;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--cmrit-blue-light);
+      color: var(--cmrit-blue);
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      color: var(--cmrit-blue-dark);
+      margin: 0 0 10px;
+      font-size: 1.15rem;
     }
 
     .card p {
-      color: var(--muted)
-    }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px
-    }
-
-    .focus-card {
-      min-height: 190px
-    }
-
-    .focus-icon {
-      font: 22px var(--mono);
-      color: var(--accent);
-      margin-bottom: 20px
-    }
-
-    .focus-card h3 {
-      font-size: 18px;
-      margin-bottom: 8px
-    }
-
-    .timeline {
-      position: relative;
-      margin-left: 8px
-    }
-
-    .timeline:before {
-      content: "";
-      position: absolute;
-      left: 7px;
-      top: 5px;
-      bottom: 5px;
-      width: 1px;
-      background: var(--line)
-    }
-
-    .item {
-      position: relative;
-      padding-left: 38px;
-      margin-bottom: 34px
-    }
-
-    .item:before {
-      content: "";
-      position: absolute;
-      left: 3px;
-      top: 7px;
-      width: 9px;
-      height: 9px;
-      border: 2px solid var(--accent);
-      background: var(--bg);
-      border-radius: 50%
-    }
-
-    .item .date {
-      font: 11px var(--mono);
-      color: var(--accent);
-      margin-bottom: 5px
-    }
-
-    .item h3 {
-      font-size: 20px
-    }
-
-    .item .org {
-      color: #bdc7d8;
-      margin-bottom: 7px
-    }
-
-    .item p {
       color: var(--muted);
-      max-width: 760px
+      margin: 0;
+      font-size: .92rem;
     }
 
-    .project {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 0;
-      border: 1px solid var(--line);
-      border-radius: 14px;
+    /* RESEARCH */
+    .research-box {
+      background: var(--cmrit-blue-dark);
+      color: white;
+      border-radius: 25px;
+      padding: clamp(30px, 6vw, 65px);
+      position: relative;
       overflow: hidden;
-      background: var(--panel)
     }
 
-    .project-main {
-      padding: 34px
+    .research-box::after {
+      content: "RESEARCH";
+      position: absolute;
+      right: -20px;
+      bottom: -35px;
+      color: rgba(255, 255, 255, .035);
+      font-size: 8rem;
+      font-weight: 950;
+      letter-spacing: -.08em;
     }
 
-    .project-side {
-      padding: 34px;
-      border-left: 1px solid var(--line);
-      background: #0a0f18
+    .research-label {
+      color: #e6c766;
+      font-size: .75rem;
+      letter-spacing: .15em;
+      font-weight: 900;
+      text-transform: uppercase;
     }
 
-    .project-label {
-      font: 11px var(--mono);
-      color: var(--accent);
-      margin-bottom: 13px
+    .research-box h3 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+      margin: 14px 0 20px;
+      max-width: 700px;
     }
 
-    .project h3 {
-      font-size: 30px;
-      letter-spacing: -.04em;
-      margin-bottom: 14px
+    .research-box p {
+      color: #cbd8e9;
+      max-width: 760px;
+      position: relative;
+      z-index: 1;
     }
 
-    .project p {
-      color: var(--muted)
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 28px;
+      position: relative;
+      z-index: 1;
     }
 
-    .codebox {
-      font: 11px/1.8 var(--mono);
-      color: #aab5c8
+    .tag {
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: rgba(255, 255, 255, .07);
+      color: #edf4ff;
+      padding: 7px 12px;
+      border-radius: 100px;
+      font-size: .76rem;
+      font-weight: 700;
     }
 
-    .codebox .key {
-      color: var(--accent2)
+    /* TIMELINE */
+    .timeline {
+      border-left: 2px solid #cdd9e8;
+      margin-left: 10px;
+      padding-left: 35px;
+      display: grid;
+      gap: 35px;
     }
 
-    .codebox .val {
-      color: var(--accent)
+    .timeline-item {
+      position: relative;
     }
 
-    .edu {
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--cmrit-gold);
+      border: 4px solid var(--soft);
+      left: -43px;
+      top: 7px;
+    }
+
+    .date {
+      color: var(--cmrit-blue);
+      font-weight: 850;
+      font-size: .75rem;
+      letter-spacing: .08em;
+    }
+
+    .timeline h3 {
+      margin: 7px 0 3px;
+      color: var(--cmrit-blue-dark);
+      font-size: 1.25rem;
+    }
+
+    .timeline .place {
+      color: #536278;
+      font-weight: 700;
+    }
+
+    .timeline p {
+      max-width: 750px;
+      color: var(--muted);
+      margin: 8px 0 0;
+    }
+
+    /* EDUCATION */
+    .education {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px
+      gap: 20px;
     }
 
-    .edu .card h3 {
-      font-size: 19px
+    .degree {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      background: white;
+      position: relative;
+      overflow: hidden;
     }
 
-    .year {
-      font: 11px var(--mono);
-      color: var(--accent);
-      margin-bottom: 8px
+    .degree-year {
+      color: var(--cmrit-gold);
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .1em;
     }
 
-    .contact {
+    .degree h3 {
+      color: var(--cmrit-blue-dark);
+      font-size: 1.45rem;
+      margin: 12px 0 6px;
+    }
+
+    .degree p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* CONTACT */
+    .contact-wrap {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px
+      grid-template-columns: 1fr .8fr;
+      gap: 22px;
     }
 
-    .contact-box {
+    .contact-main {
+      background: var(--cmrit-blue);
+      color: white;
+      border-radius: 24px;
+      padding: 42px;
+    }
+
+    .contact-main h2 {
+      color: white;
+    }
+
+    .contact-main p {
+      color: #d9e5f5;
+      max-width: 600px;
+    }
+
+    .contact-links {
       display: flex;
-      flex-direction: column;
-      gap: 12px
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
     }
 
     .contact-link {
-      font: 14px var(--mono);
-      color: #d8dfeb;
-      word-break: break-word
+      border: 1px solid rgba(255, 255, 255, .22);
+      padding: 10px 15px;
+      border-radius: 9px;
+      font-size: .84rem;
+      font-weight: 750;
+      background: rgba(255, 255, 255, .07);
     }
 
-    .contact-link:hover {
-      color: var(--accent)
+    .contact-side {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 30px;
     }
 
+    .contact-side h3 {
+      margin-top: 0;
+      color: var(--cmrit-blue-dark);
+    }
+
+    .contact-side p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* FOOTER */
     footer {
+      background: #071e3b;
+      color: #b9c8dc;
       padding: 35px 0;
-      border-top: 1px solid var(--line);
-      color: #657187;
-      font: 11px var(--mono)
     }
 
-    @media(max-width:850px) {
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      font-size: .8rem;
+    }
+
+    .footer-brand {
+      color: white;
+      font-weight: 800;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
 
       .hero-grid,
       .about-grid,
-      .project,
-      .contact {
-        grid-template-columns: 1fr
+      .contact-wrap {
+        grid-template-columns: 1fr;
       }
 
-      .focus-grid,
-      .edu {
-        grid-template-columns: 1fr 1fr
+      .hero-grid {
+        min-height: auto;
+        padding: 90px 0;
       }
 
-      .project-side {
-        border-left: 0;
-        border-top: 1px solid var(--line)
+      .hero-card {
+        max-width: 600px;
       }
 
-      .nav-links {
-        display: none
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 15px;
       }
 
-      .menu {
-        display: block
+      .cards {
+        grid-template-columns: 1fr;
       }
 
-      .nav.open .nav-links {
-        display: flex;
+      .education {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
         position: absolute;
+        left: 20px;
+        right: 20px;
         top: 72px;
-        left: 0;
-        right: 0;
-        padding: 12px 4%;
-        background: rgba(8, 11, 18, .97);
-        border-bottom: 1px solid var(--line);
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+        box-shadow: var(--shadow);
         flex-direction: column;
-        align-items: stretch
+        align-items: stretch;
       }
 
-      .nav.open .nav-links a {
-        text-align: center
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        padding: 8px;
+      }
+
+      .menu-btn {
+        display: block;
       }
     }
 
-    @media(max-width:560px) {
-      h1 {
-        font-size: 56px
-      }
-
-      .focus-grid,
-      .edu {
-        grid-template-columns: 1fr
+    @media (max-width: 550px) {
+      .container {
+        width: min(var(--max), calc(100% - 28px));
       }
 
       section {
-        padding: 80px 0
+        padding: 70px 0;
       }
 
-      .hero {
-        padding-top: 105px
+      h1 {
+        font-size: 4rem;
+      }
+
+      .hero-card,
+      .contact-main {
+        padding: 25px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 
 <body>
+  <div class="topline"></div>
 
   <header>
-    <div class="container nav" id="nav">
-      <a class="logo" href="#home">shriram<span>.bm</span></a>
-      <button class="menu" id="menu" aria-label="Open navigation">☰</button>
-      <nav class="nav-links">
-        <a href="#home" class="active">home()</a>
-        <a href="#about">about()</a>
-        <a href="#teaching">teaching()</a>
-        <a href="#research">research()</a>
-        <a href="#experience">experience()</a>
-        <a href="#education">education()</a>
-        <a href="#contact">contact()</a>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Shriram BM home">
+
+        <img class="cmrit-logo" src="images/cmrit-logo.jpg" alt="CMR Institute of Technology logo">
+
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+      <nav id="nav">
+        <a href="#about">About</a>
+        <a href="#teaching">Courses</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">initializing academic_profile</div>
-          <h1>Shriram<br><span class="outline">BM</span></h1>
-          <h2>Assistant Professor · Information Science</h2>
-          <p>Teaching, Programming Python, and Project Development with GIT . Currently at <strong>CMR
-              Institute of Technology, Bengaluru.</strong></p>
-          <div class="cta">
-            <a class="btn primary" href="#research">→ explore research</a>
-            <a class="btn" href="#teaching">→ teaching</a>
+          <div class="eyebrow">Academic Profile </div>
+          <h1>Shriram<br><span>BM</span></h1>
+          <div class="hero-role">Assistant Professor · Information Science & Engineering</div>
+          <p class="hero-text">
+            Teaching Computer Science through practical implementation, programming,
+            experimentation and problem solving. Currently at CMR Institute of Technology,
+            Bengaluru.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="#research">Explore Research</a>
+            <a class="btn btn-secondary" href="#teaching">View Courses</a>
           </div>
         </div>
-        <div class="terminal">
-          <div class="term-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span
-              class="term-title">profile.json</span></div>
-          <div class="term-body">
-            <span class="b">{</span><br>
-            &nbsp;&nbsp;<span class="key">"name"</span>: <span class="g">"Shriram BM"</span>,<br>
-            &nbsp;&nbsp;<span class="key">"role"</span>: <span class="g">"Assistant Professor"</span>,<br>
-            &nbsp;&nbsp;<span class="key">"institution"</span>: <span class="g">"CMRIT, Bengaluru"</span>,<br>
-            &nbsp;&nbsp;<span class="key">"department"</span>: <span class="g">"Information Science"</span>,<br>
-            &nbsp;&nbsp;<span class="key">"phone"</span>: <span class="g">+91 9535703374</span>,<br>
-            &nbsp;&nbsp;<span class="key">"email"</span>: <span class="g">"shriram.bm@cmrit.ac.in"</span>,<br>
-            &nbsp;&nbsp;<span class="key">"education"</span>: <span class="g">"M.Tech · Computer Science"</span><br>
-            <span class="b">}</span><br><br>
+
+        <aside class="hero-card">
+          <div class="institution">CMR Institute of Technology</div>
+          <div class="institution-name">Information Science & Engineering</div>
+
+          <div class="hero-meta">
+            <div class="meta-row">
+              <strong>Role</strong>
+              <span>Assistant Professor</span>
+            </div>
+            <div class="meta-row">
+              <strong>Education</strong>
+              <span>M.Tech · Computer Science</span>
+            </div>
+            <div class="meta-row">
+              <strong>Location</strong>
+              <span>Bengaluru, Karnataka</span>
+            </div>
+            <div class="meta-row">
+              <strong>Focus</strong>
+              <span>Teaching · Research · Computing</span>
+            </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about">
       <div class="container">
         <div class="section-head">
+          <div class="section-number">01 / About</div>
           <div>
-            <div class="kicker">01 / about</div>
             <h2>Academic profile</h2>
+            <p class="lead">
+              Computer Science academic and practitioner with experience spanning teaching,
+              Linux system administration, software engineering and privacy-preserving
+              machine learning research.
+            </p>
           </div>
-          <div class="section-number">README.md</div>
         </div>
+
         <div class="about-grid">
-          <div class="card">
-            <p>Computer Science academic and practitioner with experience spanning teaching, Linux system
-              administration, software engineering and privacy-preserving machine learning research.</p>
-          </div>
-          <div class="card">
-            <p>My approach to teaching connects core computer science concepts with practical implementation,
-              experiments and problem solving.</p>
-          </div>
+          <article class="panel">
+            <h3>Teaching philosophy</h3>
+            <p>
+              My approach to teaching connects core computer science concepts with practical
+              implementation, experiments and problem solving. Students should not only
+              understand how a system works, but also learn how to build, test, debug and
+              explain it.
+            </p>
+            <p>
+              My current academic interests combine programming, systems, secure computation
+              and practical software development.
+            </p>
+          </article>
+
+          <article class="panel">
+            <h3>Profile</h3>
+            <ul class="profile-list">
+              <li><b>Institution</b><span>CMR Institute of Technology</span></li>
+              <li><b>Department</b><span>Information Science & Engineering</span></li>
+              <li><b>Role</b><span>Assistant Professor</span></li>
+              <li><b>Degree</b><span>M.Tech in Computer Science</span></li>
+              <li><b>Interests</b><span>Programming, Security, ML</span></li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="teaching">
+    <!-- TEACHING -->
+    <section class="alt" id="teaching">
       <div class="container">
         <div class="section-head">
+          <div class="section-number">02 / Courses</div>
           <div>
-            <div class="kicker">02 / courses</div>
             <h2>Courses</h2>
+            <p class="lead">
+              Practical, implementation-oriented learning with an emphasis on programming,
+              version control and project development.
+            </p>
           </div>
-          <div class="section-number">courses.log</div>
         </div>
 
-        <div class="focus-grid">
-          <div class="card focus-card">
+        <div class="cards">
+          <article class="card">
             <a href="https://drive.google.com/drive/folders/1HyRbce5jdy5VnmOHJDBwd4GqoIOiyKJR?usp=drive_link"
               target="_blank">
-              <div class="focus-icon">Py_</div>
+              <div class="card-icon">Py</div>
               <h3>Python Programming</h3>
               <p>
-                Python programming theory covering core concepts, programming
-                constructs, problem solving and computational thinking.
+                Core Python concepts, programming constructs, problem solving and computational
+                thinking.
               </p>
             </a>
-          </div>
+          </article>
 
-          <div class="card focus-card">
+          <article class="card">
             <a href="https://drive.google.com/drive/folders/1YlAHHHIY-kk2kaI0lIEkjbesgMVovaYC?usp=drive_link"
               target="_blank">
-              <div class="focus-icon">&lt;/&gt;</div>
+              <div class="card-icon">&lt;/&gt;</div>
               <h3>Python Programming Lab</h3>
               <p>
-                Hands-on Python programming through practical exercises,
-                implementation, debugging and problem-solving tasks.
+                Hands-on programming through practical exercises, implementation, debugging
+                and problem-solving tasks.
               </p>
             </a>
-          </div>
+          </article>
 
-          <div class="card focus-card">
+          <article class="card">
             <a href="https://drive.google.com/drive/folders/1kyZzs9XhV1PHpWFv3WDAjWOijAlLA7Ec?usp=drive_link"
               target="_blank">
-              <div class="focus-icon">git_</div>
+              <div class="card-icon">Git</div>
               <h3>Project Management with Git</h3>
               <p>
-                Practical project management using Git, covering version control,
-                repositories, branching, commits, collaboration and project
-                workflow.
+                Version control, repositories, commits, branches, collaboration and practical
+                project workflow.
               </p>
             </a>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
+    <!-- RESEARCH -->
     <section id="research">
       <div class="container">
         <div class="section-head">
+          <div class="section-number">03 / Research</div>
           <div>
-            <div class="kicker">03 / research</div>
             <h2>Research</h2>
-          </div>
-          <div class="section-number">research.cpp</div>
-        </div>
-        <div class="project">
-          <div class="project-main">
-            <div class="project-label">M.TECH DISSERTATION · 2026</div>
-            <h3>IBVENet</h3>
-            <p>Privacy-preserving neural network training using functional encryption. The work explores an
-              identity-based verifiable encryption / inner-product encryption approach using a Paillier-based scheme,
-              with focus on removing the DLP bottleneck, identity-based key verification, security proofs and
-              computational overhead.</p>
-          </div>
-          <div class="project-side">
-            <div class="codebox">
-              <span class="key">research_area</span> = <span class="val">"Privacy-Preserving ML"</span>;<br>
-              <span class="key">cryptography</span> = <span class="val">"Paillier-based"</span>;<br>
-              <span class="key">focus</span> = [<br>
-              &nbsp;&nbsp;<span class="val">"secure training"</span>,<br>
-              &nbsp;&nbsp;<span class="val">"key verification"</span>,<br>
-              &nbsp;&nbsp;<span class="val">"security proofs"</span>,<br>
-              &nbsp;&nbsp;<span class="val">"overhead analysis"</span><br>
-              ];<br><br>
-              <span class="g">// secure computation</span>
-            </div>
+            <p class="lead">
+              Current work at the intersection of privacy-preserving machine learning and
+              secure computation.
+            </p>
           </div>
         </div>
+
+        <article class="research-box">
+          <div class="research-label">M.Tech Dissertation · 2026</div>
+          <h3>IBVENet</h3>
+          <p>
+            Privacy-preserving neural network training using functional encryption.
+            The work explores an identity-based verifiable encryption / inner-product
+            encryption approach using a Paillier-based scheme, with focus on removing
+            the DLP bottleneck, identity-based key verification, security proofs and
+            computational overhead.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Privacy-Preserving ML</span>
+            <span class="tag">Paillier-based Cryptography</span>
+            <span class="tag">Secure Training</span>
+            <span class="tag">Key Verification</span>
+            <span class="tag">Security Proofs</span>
+            <span class="tag">Overhead Analysis</span>
+            <span class="tag">Secure Computation</span>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="experience">
+    <!-- EXPERIENCE -->
+    <section class="alt" id="experience">
       <div class="container">
         <div class="section-head">
+          <div class="section-number">04 / Experience</div>
           <div>
-            <div class="kicker">04 / experience</div>
-            <h2>Experience</h2>
+            <h2>Professional journey</h2>
+            <p class="lead">
+              Academic, systems and software engineering experience across teaching and
+              technology.
+            </p>
           </div>
-          <div class="section-number">git log --work</div>
         </div>
+
         <div class="timeline">
-          <div class="item">
+          <article class="timeline-item">
             <div class="date">SEP 2026 — PRESENT</div>
             <h3>Assistant Professor</h3>
-            <div class="org">CMR Institute of Technology, Bengaluru</div>
-            <p>Faculty role in Information Science Department.</p>
-          </div>
-          <div class="item">
+            <div class="place">CMR Institute of Technology, Bengaluru</div>
+            <p>Faculty role in the Information Science & Engineering Department.</p>
+          </article>
+
+          <article class="timeline-item">
             <div class="date">JAN 2026 — JUN 2026</div>
-            <h3>Teaching Assistant </h3>
-            <div class="org">University of Hyderabad</div>
-            <p>Educated Master of Computer Application students in Web Technology, including React and Node.js; designed
-              practical tasks and assignments and conducted examinations and evaluations.</p>
-          </div>
-          <div class="item">
+            <h3>Teaching Assistant</h3>
+            <div class="place">University of Hyderabad</div>
+            <p>
+              Educated Master of Computer Application students in Web Technology, including
+              React and Node.js; designed practical tasks and assignments and conducted
+              examinations and evaluations.
+            </p>
+          </article>
+
+          <article class="timeline-item">
             <div class="date">AUG 2025 — JUN 2026</div>
-            <h3>System Administrator </h3>
-            <div class="org">University of Hyderabad</div>
-            <p>Managed Linux servers, user accounts and network setups; handled Linux installations, packages, services,
-              maintenance, backups and troubleshooting.</p>
-          </div>
-          <div class="item">
+            <h3>System Administrator</h3>
+            <div class="place">University of Hyderabad</div>
+            <p>
+              Managed Linux servers, user accounts and network setups; handled Linux
+              installations, packages, services, maintenance, backups and troubleshooting.
+            </p>
+          </article>
+
+          <article class="timeline-item">
             <div class="date">JUN 2022 — MAR 2023</div>
             <h3>Software Engineer</h3>
-            <div class="org">HCL Technologies</div>
-            <p>Provided technical support through ServiceNow and resolved client tickets involving configuration and
-              troubleshooting.</p>
-          </div>
+            <div class="place">HCL Technologies</div>
+            <p>
+              Provided technical support through ServiceNow and resolved client tickets
+              involving configuration and troubleshooting.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
+    <!-- EDUCATION -->
     <section id="education">
       <div class="container">
         <div class="section-head">
+          <div class="section-number">05 / Education</div>
           <div>
-            <div class="kicker">05 / education</div>
-            <h2>Education</h2>
+            <h2>Academic background</h2>
+            <p class="lead">
+              Formal education in Computer Science and Engineering.
+            </p>
           </div>
-          <div class="section-number">academic.json</div>
         </div>
-        <div class="edu">
-          <div class="card">
-            <div class="year">2026</div>
+
+        <div class="education">
+          <article class="degree">
+            <div class="degree-year">2026</div>
             <h3>M.Tech — Computer Science</h3>
-            <p>University of Hyderabad </p>
-            <p>Central University, CUC, Professor CR Rao Rd, P O, Gachibowli, Hyderabad, Telangana 500046</p>
-          </div>
-          <div class="card">
-            <div class="year">2021</div>
+            <p>University of Hyderabad</p>
+            <p>Central University, Gachibowli, Hyderabad, Telangana</p>
+          </article>
+
+          <article class="degree">
+            <div class="degree-year">2021</div>
             <h3>B.E — Computer Science & Engineering</h3>
-            <p>KNS Institute of Technology, VTU </p>
-            <p>Hegde Nagar, Kogilu Road, Thirumenahalli, Yelahanka Hobli, Kannuru, Bengaluru, Karnataka</p>
-          </div>
+            <p>KNS Institute of Technology, VTU</p>
+            <p>Bengaluru, Karnataka</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <!-- CONTACT -->
+    <section class="alt" id="contact">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="kicker">06 / contact</div>
+        <div class="contact-wrap">
+          <div class="contact-main">
+            <div class="section-number" style="color:#e6c766;">06 / Contact</div>
             <h2>Let's connect</h2>
+            <p>
+              For academic collaboration, teaching, research discussions or professional
+              communication, feel free to get in touch.
+            </p>
+
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:shriram.bm@cmrit.ac.in">Email</a>
+              <a class="contact-link" href="https://github.com/ShriramBM" target="_blank" rel="noopener">GitHub ↗</a>
+              <a class="contact-link" href="https://www.cmrit.ac.in/" target="_blank" rel="noopener">CMRIT ↗</a>
+            </div>
           </div>
-          <div class="section-number">contact.sh</div>
-        </div>
-        <div class="contact">
-          <div class="card contact-box">
-            <div class="kicker">EMAIL</div>
-            <a class="contact-link" href="mailto:shriram.bm@cmrit.ac.in">shriram.bm@cmrit.ac.in</a>
-            <div class="kicker" style="margin-top:15px">GITHUB</div>
-            <a class="contact-link" href="https://github.com/ShriramBM" target="_blank"
-              rel="noopener">github.com/ShriramBM ↗</a>
-          </div>
-          <div class="card">
-            <div class="kicker">CURRENT ROLE</div>
-            <h3>Assistant Professor</h3>
-            <p>CMR Institute of Technology, Bengaluru</p>
-            <p>Office: 1st floor staff room, AECS Layout, ITPL Mainroad, Kundalahalli, Bengaluru-560037</p>
-          </div>
+
+          <aside class="contact-side">
+            <h3>Current role</h3>
+            <p><strong>Assistant Professor</strong><br>
+              Department of Information Science & Engineering<br>
+              CMR Institute of Technology, Bengaluru
+            </p>
+
+            <p>
+              Office: 1st Floor Staff Room<br>
+              AECS Layout, ITPL Main Road<br>
+              Kundalahalli, Bengaluru — 560037
+            </p>
+
+            <p>
+              <strong>Email</strong><br>
+              shriram.bm@cmrit.ac.in
+            </p>
+          </aside>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">© <span id="year"></span> Shriram BM · built with HTML / CSS / JS · <span
-        class="g">system.exit(0)</span></div>
+    <div class="container footer-inner">
+      <div class="footer-brand">SHRIRAM BM · CMRIT</div>
+      <div>Assistant Professor · Information Science & Engineering</div>
+      <div>© <span id="year"></span> Shriram BM</div>
+    </div>
   </footer>
 
   <script>
-    const nav = document.getElementById('nav');
-    document.getElementById('menu').addEventListener('click', () => nav.classList.toggle('open'));
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => nav.classList.remove('open'));
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("nav");
+
+    menuBtn.addEventListener("click", () => {
+      nav.classList.toggle("open");
     });
-    const sections = [...document.querySelectorAll('main section')];
-    const links = [...document.querySelectorAll('.nav-links a')];
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id));
-        }
-      });
-    }, {rootMargin: '-35% 0px -55% 0px'});
-    sections.forEach(s => observer.observe(s));
-    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll("#nav a").forEach(link => {
+      link.addEventListener("click", () => nav.classList.remove("open"));
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 
