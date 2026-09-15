@@ -749,6 +749,33 @@
         align-items: flex-start;
       }
     }
+
+    .profile-photo {
+      width: 190px;
+      height: 235px;
+      object-fit: contain;
+      /* border-radius: 50%; */
+      border: 7px solid #fff;
+      outline: 2px solid var(--cmrit-gold);
+      box-shadow: 0 18px 45px rgba(8, 38, 77, .16);
+      margin: 0 auto 28px;
+      background: var(--cmrit-blue-light);
+    }
+
+    .hero-profile {
+      text-align: center;
+    }
+
+    .hero-profile .hero-card {
+      text-align: left;
+    }
+
+    @media (max-width: 850px) {
+      .profile-photo {
+        width: 150px;
+        height: 190px;
+      }
+    }
   </style>
 </head>
 
@@ -796,29 +823,33 @@
           </div>
         </div>
 
-        <aside class="hero-card">
-          <div class="institution">CMR Institute of Technology</div>
-          <div class="institution-name">Information Science & Engineering</div>
+        <div class="hero-profile">
+          <img class="profile-photo" src="images/profile.jpg" alt="Shriram BM — Assistant Professor">
 
-          <div class="hero-meta">
-            <div class="meta-row">
-              <strong>Role</strong>
-              <span>Assistant Professor</span>
+          <aside class="hero-card">
+            <div class="institution">CMR Institute of Technology</div>
+            <div class="institution-name">Information Science & Engineering</div>
+
+            <div class="hero-meta">
+              <div class="meta-row">
+                <strong>Role</strong>
+                <span>Assistant Professor</span>
+              </div>
+              <div class="meta-row">
+                <strong>Education</strong>
+                <span>M.Tech · Computer Science</span>
+              </div>
+              <div class="meta-row">
+                <strong>Location</strong>
+                <span>Bengaluru, Karnataka</span>
+              </div>
+              <div class="meta-row">
+                <strong>Focus</strong>
+                <span>Teaching · Research · Computing</span>
+              </div>
             </div>
-            <div class="meta-row">
-              <strong>Education</strong>
-              <span>M.Tech · Computer Science</span>
-            </div>
-            <div class="meta-row">
-              <strong>Location</strong>
-              <span>Bengaluru, Karnataka</span>
-            </div>
-            <div class="meta-row">
-              <strong>Focus</strong>
-              <span>Teaching · Research · Computing</span>
-            </div>
-          </div>
-        </aside>
+          </aside>
+        </div>
       </div>
     </section>
 
